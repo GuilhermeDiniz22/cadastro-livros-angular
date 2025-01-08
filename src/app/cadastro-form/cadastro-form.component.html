@@ -1,1 +1,39 @@
-<form [formGroup]="cadastroForm"></form>
+<form [formGroup]="cadastroForm" (ngSubmit)="enviar()">
+    <div>
+      <label>Título do Livro:</label>
+      <input type="text" formControlName="tituloLivro" />
+    </div>
+  
+    <div>
+      <label>Editora:</label>
+      <input type="text" formControlName="editoraLivro" />
+    </div>
+  
+    <div>
+      <label>Data de Aluguel:</label>
+      <input type="date" formControlName="dataDeAluguel" />
+    </div>
+  
+    <div>
+      <label>Data de Entrega:</label>
+      <input type="date" formControlName="dataDeEntrega" />
+    </div>
+  
+    <div>
+      <label>Nome do Sócio:</label>
+      <input type="text" formControlName="nomeSocio" />
+    </div>
+  
+    <div>
+      <label>Sobrenome do Sócio:</label>
+      <input type="text" formControlName="sobrenomeSocio" />
+    </div>
+  
+    <div>
+      <label>Email do Sócio:</label>
+      <input type="email" formControlName="emailSocio" />
+    </div>
+  
+    <button type="submit">Enviar</button>
+  </form>
+  
