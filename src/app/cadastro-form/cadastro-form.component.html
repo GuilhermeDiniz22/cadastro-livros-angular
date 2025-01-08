@@ -2,38 +2,66 @@
     <div>
       <label>Título do Livro:</label>
       <input type="text" formControlName="tituloLivro" />
+
+      @if(cadastroForm.get('tituloLivro')?.invalid && cadastroForm.get('tituloLivro')?.touched){
+        <div>O Título é obrigatório</div>
+      }
     </div>
   
     <div>
       <label>Editora:</label>
       <input type="text" formControlName="editoraLivro" />
+      
+      @if(cadastroForm.get('editoraLivro')?.invalid && cadastroForm.get('editoraLivro')?.touched){
+        <div>A Editora é obrigatória</div>
+      }
     </div>
   
     <div>
       <label>Data de Aluguel:</label>
       <input type="date" formControlName="dataDeAluguel" />
+
+      @if(cadastroForm.get('dataDeAluguel')?.invalid && cadastroForm.get('dataDeAluguel')?.touched){
+        <div>A Data de Aluguel é obrigatória</div>
+      }
     </div>
   
     <div>
       <label>Data de Entrega:</label>
       <input type="date" formControlName="dataDeEntrega" />
+
+      @if(cadastroForm.get('dataDeEntrega')?.invalid && cadastroForm.get('dataDeEntrega')?.touched){
+        <div>A Data de Entrega é obrigatória</div>
+      }
     </div>
   
     <div>
       <label>Nome do Sócio:</label>
       <input type="text" formControlName="nomeSocio" />
+
+      @if(cadastroForm.get('nomeSocio')?.invalid && cadastroForm.get('nomeSocio')?.touched){
+        <div>O Nome é obrigatório</div>
+      }
     </div>
   
     <div>
       <label>Sobrenome do Sócio:</label>
       <input type="text" formControlName="sobrenomeSocio" />
+      
+      @if(cadastroForm.get('sobrenomeSocio')?.invalid && cadastroForm.get('sobrenomeSocio')?.touched){
+        <div>O Sobrenome é obrigatório</div>
+      }
     </div>
   
     <div>
       <label>Email do Sócio:</label>
       <input type="email" formControlName="emailSocio" />
+
+      @if(cadastroForm.get('emailSocio')?.invalid && cadastroForm.get('emailSocio')?.touched){
+        <div>O Email é obrigatório</div>
+      }
     </div>
   
-    <button type="submit">Enviar</button>
+    <button type="submit" [disabled]="cadastroForm.invalid">Enviar</button>
   </form>
   
