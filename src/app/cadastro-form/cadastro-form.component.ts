@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CadastroService } from '../cadastro/cadastro.service';
+import { Cadastro } from '../models/cadastro';
 
 @Component({
   selector: 'app-cadastro-form',
@@ -11,7 +13,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class CadastroFormComponent implements OnInit {
   cadastroForm: FormGroup = new FormGroup({});
 
-  constructor(private formbuilder: FormBuilder) {}
+  constructor(private formbuilder: FormBuilder, private cadastroService : CadastroService) {}
 
   ngOnInit(): void {
     this.cadastroForm = this.formbuilder.group({
@@ -27,7 +29,9 @@ export class CadastroFormComponent implements OnInit {
 
   enviar(): void {
     if (this.cadastroForm.valid) {
-      console.log('Formulário válido:', this.cadastroForm.value);
+      let novoCadastro : Cadastro = this.cadastroForm.value;
+
+      this.cadastroService.novoCadastro(novoCadastro);
     } else {
       console.log('Formulário inválido');
     }
