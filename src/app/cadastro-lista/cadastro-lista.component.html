@@ -1,1 +1,20 @@
-<p>cadastro-lista works!</p>
+<h2>Lista de Cadastros</h2>
+
+@if(cadastros.length){
+    @for (cadastro of cadastros; track $index) {
+        <ul>
+            <li>Titulo: {{cadastro.titulo}}</li>
+            <li>Editora: {{cadastro.editora}}</li>
+            <li>Socio: {{cadastro.nome}} </li>
+            <li>Email: {{cadastro.email}}</li>
+            <li>Aluguel: {{cadastro.aluguel}}</li>
+            <li>Entrega: {{cadastro.entrega}}</li>
+            <button (click)="removerCadastro(cadastro.id)">Remover</button>
+        </ul>
+    }
+}@else {
+    <h2>Nenhum cadastro disponível</h2>
+}
+
+
+

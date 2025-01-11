@@ -21,6 +21,9 @@ export class CadastroService {
   }
 
   novoCadastro(cadastro : Cadastro):void{
+
+    cadastro.id = Date.now().toString();
+    
     this.cadastros.push(cadastro);
 
     alert('cadastro adicionado com sucesso!')

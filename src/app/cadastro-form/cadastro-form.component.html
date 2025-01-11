@@ -1,63 +1,54 @@
 <form [formGroup]="cadastroForm" (ngSubmit)="enviar()">
     <div>
       <label>Título do Livro:</label>
-      <input type="text" formControlName="tituloLivro" />
+      <input type="text" formControlName="titulo" />
 
-      @if(cadastroForm.get('tituloLivro')?.invalid && cadastroForm.get('tituloLivro')?.touched){
+      @if(cadastroForm.get('titulo')?.invalid && cadastroForm.get('titulo')?.touched){
         <div>O Título é obrigatório</div>
       }
     </div>
   
     <div>
       <label>Editora:</label>
-      <input type="text" formControlName="editoraLivro" />
+      <input type="text" formControlName="editora" />
       
-      @if(cadastroForm.get('editoraLivro')?.invalid && cadastroForm.get('editoraLivro')?.touched){
+      @if(cadastroForm.get('editora')?.invalid && cadastroForm.get('editora')?.touched){
         <div>A Editora é obrigatória</div>
       }
     </div>
   
     <div>
       <label>Data de Aluguel:</label>
-      <input type="date" formControlName="dataDeAluguel" />
+      <input type="date" formControlName="aluguel" />
 
-      @if(cadastroForm.get('dataDeAluguel')?.invalid && cadastroForm.get('dataDeAluguel')?.touched){
+      @if(cadastroForm.get('aluguel')?.invalid && cadastroForm.get('aluguel')?.touched){
         <div>A Data de Aluguel é obrigatória</div>
       }
     </div>
   
     <div>
       <label>Data de Entrega:</label>
-      <input type="date" formControlName="dataDeEntrega" />
+      <input type="date" formControlName="entrega" />
 
-      @if(cadastroForm.get('dataDeEntrega')?.invalid && cadastroForm.get('dataDeEntrega')?.touched){
+      @if(cadastroForm.get('entrega')?.invalid && cadastroForm.get('entrega')?.touched){
         <div>A Data de Entrega é obrigatória</div>
       }
     </div>
   
     <div>
       <label>Nome do Sócio:</label>
-      <input type="text" formControlName="nomeSocio" />
+      <input type="text" formControlName="nome" />
 
-      @if(cadastroForm.get('nomeSocio')?.invalid && cadastroForm.get('nomeSocio')?.touched){
+      @if(cadastroForm.get('nome')?.invalid && cadastroForm.get('nome')?.touched){
         <div>O Nome é obrigatório</div>
       }
     </div>
   
     <div>
-      <label>Sobrenome do Sócio:</label>
-      <input type="text" formControlName="sobrenomeSocio" />
-      
-      @if(cadastroForm.get('sobrenomeSocio')?.invalid && cadastroForm.get('sobrenomeSocio')?.touched){
-        <div>O Sobrenome é obrigatório</div>
-      }
-    </div>
-  
-    <div>
       <label>Email do Sócio:</label>
-      <input type="email" formControlName="emailSocio" />
+      <input type="email" formControlName="email" />
 
-      @if(cadastroForm.get('emailSocio')?.invalid && cadastroForm.get('emailSocio')?.touched){
+      @if(cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched){
         <div>O Email é obrigatório</div>
       }
     </div>
