@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CadastroService } from '../cadastro/cadastro.service';
 import { Cadastro } from '../models/cadastro';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cadastro-form',
@@ -16,7 +16,8 @@ export class CadastroFormComponent implements OnInit {
 
   constructor(private formbuilder: FormBuilder, 
     private cadastroService : CadastroService, 
-    private router : Router) {}
+    private router : Router,
+  private activatedRouter : ActivatedRoute) {}
 
   ngOnInit(): void {
     this.cadastroForm = this.formbuilder.group({
@@ -27,17 +28,43 @@ export class CadastroFormComponent implements OnInit {
       nome: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
     });
+
+    let id = Number(this.activatedRouter.snapshot.paramMap.get('id'));
+
+    
+
+    console.log(this.cadastroService.getAllCadastros());
+
+    if(id){
+      let cadastro = this.cadastroService.getCadastroById(id);
+
+      if(cadastro){
+        this.cadastroForm.patchValue(cadastro);
+      }
+
+    }
+
+    
   }
 
   enviar(): void {
     if (this.cadastroForm.valid) {
       let novoCadastro : Cadastro = this.cadastroForm.value;
 
-      this.cadastroService.novoCadastro(novoCadastro);
+      let id = Number(this.activatedRouter.snapshot.paramMap.get('id'));
+
+      if(id){
+
+        this.cadastroService.editarCadastro(id, novoCadastro);
+
+        }else{
+          this.cadastroService.novoCadastro(novoCadastro);
+        }
+  
+      }
 
       this.router.navigate(['/listar']);
-    } else {
-      console.log('Formulário inválido');
-    }
+  
   }
+
 }

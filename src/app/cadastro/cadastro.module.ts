@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 import { CadastroFormComponent } from '../cadastro-form/cadastro-form.component';
 import { CadastroListaComponent } from '../cadastro-lista/cadastro-lista.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
+
 
 
 
@@ -13,7 +16,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ]
 })
 export class CadastroModule { }

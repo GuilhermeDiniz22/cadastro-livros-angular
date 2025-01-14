@@ -20,7 +20,7 @@ export class CadastroListaComponent implements OnInit{
     this.cadastros = this.service.getAllCadastros();
   }
 
-  removerCadastro(id:string){
+  removerCadastro(id:number){
     this.service.removerCadastro(id);
   }
 

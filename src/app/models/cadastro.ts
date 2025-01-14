@@ -1,5 +1,5 @@
 export interface Cadastro {
-    id: string,
+    id: number,
     titulo: string,
     editora: string,
     aluguel: Date,

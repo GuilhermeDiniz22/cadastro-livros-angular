@@ -1,3 +1,5 @@
+
+
 <h2>Lista de Cadastros</h2>
 
 @if(cadastros.length){
@@ -10,6 +12,7 @@
             <li>Aluguel: {{cadastro.aluguel}}</li>
             <li>Entrega: {{cadastro.entrega}}</li>
             <button (click)="removerCadastro(cadastro.id)">Remover</button>
+            <button [routerLink]="['/editar/', cadastro.id]">Editar</button>
         </ul>
     }
 }@else {
