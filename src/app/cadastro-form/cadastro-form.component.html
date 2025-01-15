@@ -1,60 +1,63 @@
-
-
-<form [formGroup]="cadastroForm" (ngSubmit)="enviar()">
-    <div>
-      <label>Título do Livro:</label>
-      <input type="text" formControlName="titulo" />
-
-      @if(cadastroForm.get('titulo')?.invalid && cadastroForm.get('titulo')?.touched){
-        <div>O Título é obrigatório</div>
-      }
+<form [formGroup]="cadastroForm" (ngSubmit)="enviar()" class="container mt-4">
+  <div class="row">
+    <!-- Coluna Esquerda -->
+    <div class="col-md-6 mb-3">
+      <label for="titulo" class="form-label">Título do Livro:</label>
+      <input type="text" formControlName="titulo" id="titulo" class="form-control" />
+      <div *ngIf="cadastroForm.get('titulo')?.invalid && cadastroForm.get('titulo')?.touched" class="text-danger">
+        O Título é obrigatório
+      </div>
     </div>
-  
-    <div>
-      <label>Editora:</label>
-      <input type="text" formControlName="editora" />
-      
-      @if(cadastroForm.get('editora')?.invalid && cadastroForm.get('editora')?.touched){
-        <div>A Editora é obrigatória</div>
-      }
-    </div>
-  
-    <div>
-      <label>Data de Aluguel:</label>
-      <input type="date" formControlName="aluguel" />
 
-      @if(cadastroForm.get('aluguel')?.invalid && cadastroForm.get('aluguel')?.touched){
-        <div>A Data de Aluguel é obrigatória</div>
-      }
+    <div class="col-md-6 mb-3">
+      <label for="editora" class="form-label">Editora:</label>
+      <input type="text" formControlName="editora" id="editora" class="form-control" />
+      <div *ngIf="cadastroForm.get('editora')?.invalid && cadastroForm.get('editora')?.touched" class="text-danger">
+        A Editora é obrigatória
+      </div>
     </div>
-  
-    <div>
-      <label>Data de Entrega:</label>
-      <input type="date" formControlName="entrega" />
+  </div>
 
-      @if(cadastroForm.get('entrega')?.invalid && cadastroForm.get('entrega')?.touched){
-        <div>A Data de Entrega é obrigatória</div>
-      }
+  <div class="row">
+    <!-- Coluna Esquerda -->
+    <div class="col-md-6 mb-3">
+      <label for="aluguel" class="form-label">Data de Aluguel:</label>
+      <input type="date" formControlName="aluguel" id="aluguel" class="form-control" />
+      <div *ngIf="cadastroForm.get('aluguel')?.invalid && cadastroForm.get('aluguel')?.touched" class="text-danger">
+        A Data de Aluguel é obrigatória
+      </div>
     </div>
-  
-    <div>
-      <label>Nome do Sócio:</label>
-      <input type="text" formControlName="nome" />
 
-      @if(cadastroForm.get('nome')?.invalid && cadastroForm.get('nome')?.touched){
-        <div>O Nome é obrigatório</div>
-      }
+    <div class="col-md-6 mb-3">
+      <label for="entrega" class="form-label">Data de Entrega:</label>
+      <input type="date" formControlName="entrega" id="entrega" class="form-control" />
+      <div *ngIf="cadastroForm.get('entrega')?.invalid && cadastroForm.get('entrega')?.touched" class="text-danger">
+        A Data de Entrega é obrigatória
+      </div>
     </div>
-  
-    <div>
-      <label>Email do Sócio:</label>
-      <input type="email" formControlName="email" />
+  </div>
 
-      @if(cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched){
-        <div>O Email é obrigatório</div>
-      }
+  <div class="row">
+    <!-- Coluna Esquerda -->
+    <div class="col-md-6 mb-3">
+      <label for="nome" class="form-label">Nome do Sócio:</label>
+      <input type="text" formControlName="nome" id="nome" class="form-control" />
+      <div *ngIf="cadastroForm.get('nome')?.invalid && cadastroForm.get('nome')?.touched" class="text-danger">
+        O Nome é obrigatório
+      </div>
     </div>
-  
-    <button type="submit" [disabled]="cadastroForm.invalid">Enviar</button>
-  </form>
-  
+
+    <div class="col-md-6 mb-3">
+      <label for="email" class="form-label">Email do Sócio:</label>
+      <input type="email" formControlName="email" id="email" class="form-control" />
+      <div *ngIf="cadastroForm.get('email')?.invalid && cadastroForm.get('email')?.touched" class="text-danger">
+        O Email é obrigatório
+      </div>
+    </div>
+  </div>
+
+  <div class="d-flex justify-content-center gap-2">
+    <button type="submit" class="btn btn-primary" [disabled]="cadastroForm.invalid">Enviar</button>
+    <button class="btn btn-warning" [routerLink]="'/'">Home</button>
+  </div>
+</form>

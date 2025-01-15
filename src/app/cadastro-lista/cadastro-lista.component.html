@@ -1,23 +1,22 @@
-
-
-<h2>Lista de Cadastros</h2>
+<h2 class="mb-4 text-center">Lista de Cadastros</h2>
 
 @if(cadastros.length){
     @for (cadastro of cadastros; track $index) {
-        <ul>
-            <li>Titulo: {{cadastro.titulo}}</li>
-            <li>Editora: {{cadastro.editora}}</li>
-            <li>Socio: {{cadastro.nome}} </li>
-            <li>Email: {{cadastro.email}}</li>
-            <li>Aluguel: {{cadastro.aluguel}}</li>
-            <li>Entrega: {{cadastro.entrega}}</li>
-            <button (click)="removerCadastro(cadastro.id)">Remover</button>
-            <button [routerLink]="['/editar/', cadastro.id]">Editar</button>
-        </ul>
+        <div class="container">
+            <ul class="list-group mb-3">
+                <li class="list-group-item"><strong>Título:</strong> {{cadastro.titulo}}</li>
+                <li class="list-group-item"><strong>Editora:</strong> {{cadastro.editora}}</li>
+                <li class="list-group-item"><strong>Sócio:</strong> {{cadastro.nome}}</li>
+                <li class="list-group-item"><strong>Email:</strong> {{cadastro.email}}</li>
+                <li class="list-group-item"><strong>Aluguel:</strong> {{cadastro.aluguel}}</li>
+                <li class="list-group-item"><strong>Entrega:</strong> {{cadastro.entrega}}</li>
+                <div class="d-flex justify-content-center gap-2">
+                    <button class="btn btn-danger btn-sm" (click)="removerCadastro(cadastro.id)">Remover</button>
+                    <button class="btn btn-warning btn-sm" [routerLink]="['/editar/', cadastro.id]">Editar</button>
+                </div>
+            </ul>
+        </div>
     }
 }@else {
-    <h2>Nenhum cadastro disponível</h2>
+    <h2 class="text-center">Nenhum cadastro disponível</h2>
 }
-
-
-
